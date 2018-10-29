@@ -11,6 +11,15 @@ Node::Node(std::string n)
       width_(0),
       height_(0) {}
 
+Node::~Node() {
+  using namespace std;
+  cout << "node " << name_ << " is destroyed\n";
+  if (first_child_)
+    delete first_child_;
+  if (sibling_)
+    delete sibling_;
+}
+
 void Node::SetWidth(int width) {
   width_ = width;
 }

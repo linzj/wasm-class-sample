@@ -5,7 +5,7 @@
 class Node {
  public:
   Node(std::string);
-  ~Node() = default;
+  ~Node();
   int GetWidth() const;
   int GetHeight() const;
   void SetWidth(int);
