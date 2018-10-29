@@ -17,8 +17,8 @@ void Dog::makeSound (emscripten::val func) {
   cout << "bark!" << func.call<string>("apply", emscripten::val::undefined()) << '\n';
 }
 
-std::unique_ptr<Dog> Dog::newDog(string n) {
-  return std::unique_ptr<Dog>(new Dog(n));
+Dog* Dog::newDog(string n) {
+  return new Dog(n);
 }
 
 void Dog::hey(Dog* dog) {
@@ -30,6 +30,6 @@ EMSCRIPTEN_BINDINGS (c) {
     .constructor<string>()
     .function("makeSound", &Dog::makeSound)
     .function("getGreeting", &Dog::getGreeting)
-    .function("newDog", &Dog::newDog)
+    .function("newDog", &Dog::newDog, allow_raw_pointers())
     .function("hey", &Dog::hey, allow_raw_pointers());
 }

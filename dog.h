@@ -13,7 +13,7 @@ class Dog {
     Dog (string n);
     string getGreeting ();
     void makeSound (emscripten::val func );
-    std::unique_ptr<Dog> newDog(string n);
+    Dog* newDog(string n);
     void hey(Dog*);
 };
 
