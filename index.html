@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>C++ WASM Demo</title>
+</head>
+<body>
+  <button id="render">Render</button>
+  <div id="canvas"></div>
+  <script src="/node.js"></script>
+  <script>
+    Module.addOnPostRun(() => {
+      render.onclick = function () {
+        var n0 = new Module.Node("root");
+        var n1 = new Module.Node("Node one");
+        var n2 = new Module.Node("Node Two");
+        var n3 = new Module.Node("Node Three");
+        var n4 = new Module.Node("Node Four");
+        n0.style = 'background-color:red;';
+        n0.width = 1000;
+        n0.height = 1000;
+
+        n1.style = 'background-color:blue;';
+        n1.width = 500;
+        n1.height = 500;
+
+        n2.style = 'background-color:green;';
+        n2.width = 500;
+        n2.height = 500;
+
+        n3.style = 'background-color:yellow;';
+        n3.width = 250;
+        n3.height = 250;
+
+        n4.style = 'background-color:violet;';
+        n4.width = 500;
+        n4.height = 500;
+
+        n0.appendChild(n1);
+        n0.appendChild(n2);
+        n2.appendChild(n3);
+        n0.appendChild(n4);
+        canvas.innerHTML = n0.buildHTML();
+      }
+    })
+  </script>
+</body>
+</html>
