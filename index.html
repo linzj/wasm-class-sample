@@ -10,6 +10,7 @@
   <span style="font-size: 50px;">🐶</span>
   <button id="hi">Say hi</button>
   <button id="bark">Bark (console)</button>
+  <button id="newDog">new Dog</button>
   <script src="/dog.js"></script>
   <script>
     function callmepeter() {
@@ -19,6 +20,7 @@
       const dog = new Module.Dog('Snoopy')
       hi.onclick = () => alert(dog.getGreeting())
       bark.onclick = () => dog.makeSound(callmepeter)
+      newDog.onclick = () => { let d = dog.newDog('newDog'); alert(d.getGreeting());}
     })
   </script>
 </body>
