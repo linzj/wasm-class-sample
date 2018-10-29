@@ -20,7 +20,7 @@
       const dog = new Module.Dog('Snoopy')
       hi.onclick = () => alert(dog.getGreeting())
       bark.onclick = () => dog.makeSound(callmepeter)
-      newDog.onclick = () => { let d = dog.newDog('newDog'); alert(d.getGreeting());}
+      newDog.onclick = () => { let d = dog.newDog('newDog'); alert(d.getGreeting()); d.hey(dog);}
     })
   </script>
 </body>

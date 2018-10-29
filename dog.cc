@@ -21,10 +21,15 @@ std::unique_ptr<Dog> Dog::newDog(string n) {
   return std::unique_ptr<Dog>(new Dog(n));
 }
 
+void Dog::hey(Dog* dog) {
+  cout << "hey " << dog->name << '\n';
+}
+
 EMSCRIPTEN_BINDINGS (c) {
   class_<Dog>("Dog")
     .constructor<string>()
     .function("makeSound", &Dog::makeSound)
     .function("getGreeting", &Dog::getGreeting)
-    .function("newDog", &Dog::newDog);
+    .function("newDog", &Dog::newDog)
+    .function("hey", &Dog::hey, allow_raw_pointers());
 }

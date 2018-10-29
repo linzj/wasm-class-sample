@@ -14,6 +14,7 @@ class Dog {
     string getGreeting ();
     void makeSound (emscripten::val func );
     std::unique_ptr<Dog> newDog(string n);
+    void hey(Dog*);
 };
 
 #endif
