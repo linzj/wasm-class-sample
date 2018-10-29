@@ -1,6 +1,7 @@
 #ifndef DOG_H
 #define DOG_H
 
+#include <emscripten/val.h>
 #include <string>
 
 using std::string;
@@ -11,7 +12,7 @@ class Dog {
   public:
     Dog (string n);
     string getGreeting ();
-    void makeSound ();
+    void makeSound (emscripten::val func );
 };
 
 #endif

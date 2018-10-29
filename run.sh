@@ -6,7 +6,7 @@ url="http://localhost:8080"
 # but it doesn't work ¯\_(ツ)_/¯
 
 emcc --bind -Oz dog.cc -o dog.js \
--s WASM=1 -s NO_EXIT_RUNTIME=1 -s "EXTRA_EXPORTED_RUNTIME_METHODS=['addOnPostRun']" \
+-s WASM=1 -s NO_EXIT_RUNTIME=1 -g -s "EXTRA_EXPORTED_RUNTIME_METHODS=['addOnPostRun']" \
 || exit 1
 
 case "$OSTYPE" in

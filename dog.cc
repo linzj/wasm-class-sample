@@ -13,8 +13,8 @@ string Dog::getGreeting () {
   return "My name is " + name + ", hello from C++!";
 }
 
-void Dog::makeSound () {
-  cout << "bark!" << '\n';
+void Dog::makeSound (emscripten::val func) {
+  cout << "bark!" << func.call<string>("apply", emscripten::val::undefined()) << '\n';
 }
 
 EMSCRIPTEN_BINDINGS (c) {

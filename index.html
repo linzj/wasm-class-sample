@@ -12,10 +12,13 @@
   <button id="bark">Bark (console)</button>
   <script src="/dog.js"></script>
   <script>
+    function callmepeter() {
+      return 'peter';
+    }
     Module.addOnPostRun(() => {
       const dog = new Module.Dog('Snoopy')
       hi.onclick = () => alert(dog.getGreeting())
-      bark.onclick = () => dog.makeSound()
+      bark.onclick = () => dog.makeSound(callmepeter)
     })
   </script>
 </body>
